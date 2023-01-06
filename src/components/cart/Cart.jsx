@@ -21,7 +21,7 @@ export default function Cart() {
         loginToken ?
             <>
                 {
-                    isCart ?
+                    isCart != 0 ?
                         <CartDetails /> :
                         <div className='cart-main'>
                             <div className="empty-cart">
@@ -31,7 +31,7 @@ export default function Cart() {
                         </div>
                 }
             </> :
-            <div className='cart-main'>
+            <div className='cart-login-main'>
                 <div className='login-btn'>
                     <NavLink to='/login'>
                         <Button type='submit' variant="contained">

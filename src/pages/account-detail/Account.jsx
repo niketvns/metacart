@@ -24,7 +24,7 @@ const Account = () => {
                             <p>Email: <b>{userDetail.email}</b></p>
                         </div>
                     </div> :
-                    <div className="my-account-detail">
+                    <div className="my-account-login">
                         <NavLink to='/login'>
                             <Button type='submit' variant="contained">
                                 Login to View

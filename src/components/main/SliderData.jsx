@@ -32,8 +32,10 @@ const SliderData = (props) => {
             setNoOfItems(5);
         } else if (deviceWidth < 1000 && deviceWidth > 860) {
             setNoOfItems(4)
-        } else if (deviceWidth < 860) {
+        } else if (deviceWidth < 860 && deviceWidth > 600) {
             setNoOfItems(3)
+        } else if (deviceWidth < 600) {
+            setNoOfItems(2)
         }
     }, [])
 

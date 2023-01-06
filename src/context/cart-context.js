@@ -6,19 +6,20 @@ const cartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
-    const [isCart, setIsCart] = useState([{
-        id: 1,
-        qnt: 2
-    },
-    {
-        id: 2,
-        qnt: 1
-    }]);
+    const [isCart, setIsCart] = useState([]);
 
+
+    const deleteItem = (id) => {
+        setIsCart((oldItems) => {
+            return oldItems.filter((curItem) => {
+                return curItem.id != id;
+            })
+        })
+    }
 
 
     return (
-        <cartContext.Provider value={{ isCart, setIsCart }}>
+        <cartContext.Provider value={{ isCart, setIsCart, deleteItem }}>
             {children}
         </cartContext.Provider>
     )

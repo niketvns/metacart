@@ -2,49 +2,47 @@ import React, { useEffect, useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import './wishlistDetails.css';
+// import './wishlistDetails.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
+import { useGlobalWishlist } from '../../context/wishlist-context';
 
 const WishlistItem = (props) => {
 
-    const [cartItemDetail, setCartItemDetail] = useState();
+    const [wishlistItemDetail, setWishlistItemDetail] = useState();
 
-    let API_URL = `https://dummyjson.com/products/${props.id}`
+    const { deleteItem } = useGlobalWishlist();
 
-    const getCartItem = async () => {
+    let API_URL = `https://dummyjson.com/products/${props.id}`;
+
+    const getWishlistItem = async () => {
         let res = await axios.get(API_URL)
-        setCartItemDetail(res.data)
+        setWishlistItemDetail(res.data)
+        console.log(res.data);
     }
 
     useEffect(() => {
-        getCartItem();
+        getWishlistItem();
     }, [])
 
+
     return (
-        cartItemDetail
+        wishlistItemDetail
         &&
         <div className="item">
-            <div className="img">
-                <img src={cartItemDetail.thumbnail} alt="" />
-            </div>
-            <div className="title">
-                <h3>{cartItemDetail.title.slice(0, 14)}...</h3>
-                <div className="in-stock">In Stock</div>
-            </div>
-            <div className="qnt-btn">
-                <IconButton aria-label="delete" size="large">
-                    <RemoveIcon />
-                </IconButton>
-                <input type="text" value={props.item.qnt} disabled />
-                <IconButton aria-label="delete" size="large">
-                    <AddIcon />
-                </IconButton>
+            <div className="img-title">
+                <div className="img">
+                    <img src={wishlistItemDetail.thumbnail} alt="" />
+                </div>
+                <div className="title">
+                    <h3>{wishlistItemDetail.title}...</h3>
+                    <div className="in-stock">In Stock</div>
+                </div>
             </div>
             <div className="price">
-                Rs. {(cartItemDetail.price * 40).toFixed(0)}/-
+                Rs. {(wishlistItemDetail.price * 40).toFixed(0)}/-
             </div>
-            <div className="delete">
+            <div className="delete" onClick={() => deleteItem(wishlistItemDetail.id)}>
                 <IconButton aria-label="delete" size="large">
                     <DeleteIcon fontSize="inherit" />
                 </IconButton>

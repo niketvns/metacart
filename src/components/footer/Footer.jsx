@@ -12,6 +12,9 @@ export default function Footer() {
 
     return (
         <>
+            <div className="bg-img">
+                <a href='https://twitter.com/Niketmishravns'>Follow Us On Twitter</a>
+            </div>
             <footer>
                 <div className="details">
                     <div className="about">

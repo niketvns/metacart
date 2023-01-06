@@ -1,4 +1,5 @@
-.my-account-detail {
+.my-account-detail,
+.my-account-login {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -7,6 +8,13 @@
     margin-top: 5rem;
     font-size: 1.5rem;
     gap: 20px;
+}
+
+.my-account-login {
+    align-items: center;
+    background-image: url('../../images/my-account-bg.svg');
+    background-size: 80% 80%;
+    background-repeat: no-repeat;
 }
 
 .my-account-detail .img {
@@ -28,14 +36,14 @@
     flex-direction: column;
 }
 
-.my-account-detail a {
+.my-account-login a {
     text-decoration: none;
 }
 
-.my-account-detail a button {
+.my-account-login a button {
     background-color: var(--secondary-color);
 }
 
-.my-account-detail a button:hover {
+.my-account-login a button:hover {
     background-color: var(--secondary-color);
 }

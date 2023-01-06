@@ -10,12 +10,15 @@ import { useGlobalCart } from '../../context/cart-context';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGlobalLogin } from '../../context/login-context';
+import { useGlobalWishlist } from '../../context/wishlist-context';
 
 export default function ProductCard(props) {
 
     const [addedToCart, setAddedToCart] = useState(false);
+    const [addedWishlist, setAddedWishlist] = useState(false);
 
     const { isCart, setIsCart } = useGlobalCart();
+    const { isWishlist, setIsWishlist } = useGlobalWishlist();
     const { loginToken, notifySuccess, notifyWarn } = useGlobalLogin();
 
     const navigate = useNavigate();
@@ -42,6 +45,21 @@ export default function ProductCard(props) {
         }
     }
 
+    const changeWishlist = () => {
+        if (!addedWishlist) {
+            if (loginToken) {
+                setIsWishlist([props.id, ...isWishlist])
+                notifySuccess('Item Added to Wishlist')
+                setAddedWishlist(true)
+            } else {
+                navigate('/login')
+                notifyWarn('Login to Add Wishlist')
+            }
+        } else {
+            navigate('/wishlist')
+        }
+    }
+
     return (
         <>
             <div className='ind-product'>
@@ -53,7 +71,7 @@ export default function ProductCard(props) {
                 <h3>{props.title}</h3>
                 <div className="price-wishlist">
                     <p className='price'><sup>&#8377;</sup>{(props.price * 40).toFixed(0)}/-</p>
-                    <span>
+                    <span onClick={changeWishlist}>
                         <IconButton
                             aria-label="delete" id='wishlist-icon'
                         >

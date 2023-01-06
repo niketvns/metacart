@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Signin() {
 
-    const { loginToken, logoutAction, input, dummyUserData, loginAction } = useGlobalLogin();
+    const { loginToken, logoutAction, input, setInput, dummyUserData, loginAction } = useGlobalLogin();
 
     const navigate = useNavigate();
 
@@ -20,6 +20,14 @@ export default function Signin() {
             navigate('/')
         }
     }, [loginToken]);
+
+    const setUserId = (event) => {
+        setInput({ userId: event.target.value })
+    }
+
+    const setPassword = (event) => {
+        setInput({ password: event.target.value })
+    }
 
     return (
         <>
@@ -44,6 +52,7 @@ export default function Signin() {
                                         label="username"
                                         variant="outlined"
                                         value={input.userId}
+                                        onChange={setUserId}
                                     />
                                     <TextField
                                         type='password'
@@ -52,6 +61,7 @@ export default function Signin() {
                                         label="password"
                                         variant="outlined"
                                         value={input.password}
+                                        onChange={setPassword}
                                     />
                                     <Button type='submit' variant="contained">
                                         Submit

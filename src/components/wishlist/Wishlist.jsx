@@ -4,14 +4,14 @@ import wishlist from '../../images/wishlist.svg';
 import { useGlobalLogin } from '../../context/login-context';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
-import { useGlobalCart } from '../../context/cart-context';
 import WishlistDetails from './WishlistDetails';
+import { useGlobalWishlist } from '../../context/wishlist-context';
 
 export default function Wishlist() {
 
     const { loginToken } = useGlobalLogin();
 
-    const { isCart } = useGlobalCart();
+    const { isWishlist } = useGlobalWishlist();
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -21,7 +21,7 @@ export default function Wishlist() {
         loginToken ?
             <>
                 {
-                    isCart ?
+                    isWishlist.length !== 0 ?
                         <WishlistDetails /> :
                         <div className='wishlist-main'>
                             <div className="empty-wishlist">
@@ -31,7 +31,7 @@ export default function Wishlist() {
                         </div>
                 }
             </> :
-            <div className='wishlist-main'>
+            <div className='wishlist-login-main'>
                 <div className='login-btn'>
                     <NavLink to='/login'>
                         <Button type='submit' variant="contained">

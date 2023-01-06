@@ -68,9 +68,14 @@
 
     .cart-items-main {
         align-items: flex-start;
+        padding-left: 0px;
     }
 
     .cart-items-main .items {
         width: 95%;
+    }
+
+    .cart-items-main .items .item {
+        padding: 5px 5px !important;
     }
 }

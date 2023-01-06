@@ -3,6 +3,13 @@
     min-height: 80vh;
 }
 
+.wishlist-login-main {
+    width: 100vw;
+    min-height: 80vh;
+    background-image: url('../../images/wishlist-bg.jpg');
+    background-size: 100% 100%;
+}
+
 .empty-wishlist {
     width: 100vw;
     height: 80vh;
@@ -20,4 +27,11 @@
 .empty-wishlist p {
     font-size: 1.5rem;
     font-weight: 600;
+}
+
+.img-title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }

@@ -67,6 +67,10 @@
     padding-left: 40px;
 }
 
+.all-details .price-desc-btn .btn button {
+    background-color: var(--secondary-color);
+}
+
 .all-details .price {
     display: flex;
     justify-content: center;
@@ -104,6 +108,11 @@
     /* background-color: beige; */
     width: 100%;
     padding: 20px 10px;
+}
+
+.related-product {
+    border-top: 1px solid black;
+    padding-top: 10px;
 }
 
 .related-product .title-deal {

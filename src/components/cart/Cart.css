@@ -1,8 +1,15 @@
 .cart-main {
     width: 100vw;
     min-height: 80vh;
-    background-image: url('../../images/cart-img.jpg');
-    background-size: 100% 100%;
+}
+
+.cart-login-main {
+    width: 100vw;
+    min-height: 80vh;
+    background-image: url('../../images/cart-bg.svg');
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .empty-cart {
@@ -36,4 +43,12 @@
 
 .login-btn a {
     text-decoration: none;
+}
+
+.login-btn a button {
+    background-color: var(--secondary-color);
+}
+
+.login-btn a button:hover {
+    background-color: var(--secondary-color);
 }

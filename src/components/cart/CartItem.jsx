@@ -5,10 +5,13 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import './cartDetails.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
+import { useGlobalCart } from '../../context/cart-context';
 
 const CartItem = (props) => {
 
     const [cartItemDetail, setCartItemDetail] = useState();
+
+    const { deleteItem } = useGlobalCart()
 
     let API_URL = `https://dummyjson.com/products/${props.id}`
 
@@ -45,7 +48,7 @@ const CartItem = (props) => {
             <div className="price">
                 Rs. {(cartItemDetail.price * 40).toFixed(0)}/-
             </div>
-            <div className="delete">
+            <div className="delete" onClick={() => deleteItem(cartItemDetail.id)}>
                 <IconButton aria-label="delete" size="large">
                     <DeleteIcon fontSize="inherit" />
                 </IconButton>

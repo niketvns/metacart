@@ -300,7 +300,7 @@ header .best-deal .title-deal a:hover {
     }
 
     .deal-items .swiper-wrapper {
-        padding-left: 0rem !important;
+        padding-left: 20px !important;
     }
 }
 
@@ -311,13 +311,17 @@ header .best-deal .title-deal a:hover {
     }
 }
 
-@media screen and (max-width: 650px) {
-    .deal-item {
-        width: 150px;
+@media screen and (max-width: 700px) {
+    .cart-items-main .items {
+        width: 95% !important;
     }
 }
 
 @media screen and (max-width: 600px) {
+
+    .all-products {
+        gap: 10px;
+    }
 
     .slider img {
         height: 300px !important;
@@ -341,10 +345,6 @@ header .best-deal .title-deal a:hover {
 }
 
 @media screen and (max-width: 500px) {
-
-    .deal-item {
-        width: 120px;
-    }
 
     .collections img {
         width: 150px;

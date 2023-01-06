@@ -4,6 +4,7 @@ import logo from '../../images/metacart-logo-2.png';
 import SearchIcon from '@mui/icons-material/Search';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Menu from '../menu/Menu';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 import "react-tooltip/dist/react-tooltip.css";
@@ -19,20 +20,23 @@ import Avatar from '@mui/material/Avatar';
 import { useGlobalLogin } from '../../context/login-context';
 import { useGlobalCart } from '../../context/cart-context';
 import AccountMenu from './AccountMenu';
+import { useGlobalWishlist } from '../../context/wishlist-context';
 
 
 export default function Navbar() {
     const [showMenu, setShowMenu] = useState(false);
-    const [input, setInput] = useState('shoes');
+    const [input, setInput] = useState('');
 
 
     const { loginToken, userDetail, notifyWarn } = useGlobalLogin();
     const { isCart } = useGlobalCart();
+    const { isWishlist } = useGlobalWishlist();
 
     const navigate = useNavigate();
 
 
     let NumberOfItemsInCart = isCart.length;
+    let NumberOfItemsInWishlist = isWishlist.length;
 
     const menuFunction = () => {
         setShowMenu(!showMenu);
@@ -103,7 +107,9 @@ export default function Navbar() {
                     <div className="wishlist" id='my-wishlist'>
                         <NavLink to='/wishlist'>
                             <IconButton aria-label="cart">
-                                <FavoriteBorderIcon style={fontStyle2rem} />
+                                <StyledBadge badgeContent={NumberOfItemsInWishlist} color="secondary">
+                                    <FavoriteIcon style={fontStyle2rem} />
+                                </StyledBadge>
                             </IconButton>
                         </NavLink>
                     </div>

@@ -9,6 +9,26 @@ footer {
     color: white;
 }
 
+.bg-img {
+    background-image: url('../../images/footer-background.jpg');
+    height: 120px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.bg-img a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    background-color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
 .details {
     padding: 20px 5px;
     display: flex;

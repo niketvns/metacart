@@ -107,6 +107,10 @@
     .ind-product img {
         height: 10rem;
     }
+
+    .all-products {
+        gap: 10px;
+    }
 }
 
 @media screen and (max-width:450px) {
