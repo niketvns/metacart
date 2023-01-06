@@ -66,9 +66,11 @@ export default function Signin() {
                                     <Button type='submit' variant="contained">
                                         Submit
                                     </Button>
+                                    <Button onClick={dummyUserData} variant="contained">
+                                        Login as Dummy User
+                                    </Button>
                                 </Box>
                             </div>
-                            <p><NavLink onClick={dummyUserData}>Login</NavLink> as Dummy User</p>
                             <p><NavLink to="/recover-password">forget password</NavLink></p>
                             <p>Not Register ? <NavLink to="/signup">Sign Up</NavLink></p>
                         </div> :

@@ -8,12 +8,27 @@ const WishlistProvider = ({ children }) => {
 
     const [isWishlist, setIsWishlist] = useState([]);
 
+    const tostifyObj = {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        pauseOnFocusLoss: false,
+        theme: "light",
+    }
+
+    const notifySuccess = (content) => toast.success(content, tostifyObj);
+
     const deleteItem = (id) => {
         setIsWishlist((oldId) => {
             return oldId.filter((curId) => {
                 return curId != id;
             })
         })
+        notifySuccess('removed from wishlist')
     }
 
     return (

@@ -10,6 +10,10 @@ export default function Women() {
                 <ProductDetails
                     category={'womens-dresses'}
                 />
+                <h2>Tops</h2>
+                <ProductDetails
+                    category={'tops'}
+                />
                 <h2>Watches</h2>
                 <ProductDetails
                     category={'womens-watches'}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Menu.css';
 import CloseIcon from '@mui/icons-material/Close';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
@@ -27,7 +28,7 @@ export default function Menu({ menuFunction }) {
             <div className="main-menu">
                 <div className="left-menu">
                     <span className="close-menu" onClick={menuFunction}>
-                        <CloseIcon />
+                        <HighlightOffIcon />
                     </span>
                     <div className="user-welcome">
                         <AccountCircleIcon /> Welcome, {loginToken ? userDetail.firstName : "user"}

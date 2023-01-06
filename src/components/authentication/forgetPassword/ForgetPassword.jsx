@@ -31,7 +31,7 @@ export default function ForgetPassword() {
                             <input type="text" name="email" id="" placeholder='Email' required />
                         </div>
                         <button type="submit">
-                            <Button variant="contained" style={{ backgroundColor: '#232f3e' }}>Submit</Button>
+                            <Button variant="contained">Submit</Button>
                         </button>
                     </form>
                     <p>Not Register ? <NavLink to="/signup">Sign Up</NavLink></p>

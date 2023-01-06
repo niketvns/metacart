@@ -17,7 +17,7 @@ export default function ProductCard(props) {
     const [addedToCart, setAddedToCart] = useState(false);
     const [addedWishlist, setAddedWishlist] = useState(false);
 
-    const { isCart, setIsCart } = useGlobalCart();
+    const { isCart, setIsCart, IncrementQnt } = useGlobalCart();
     const { isWishlist, setIsWishlist } = useGlobalWishlist();
     const { loginToken, notifySuccess, notifyWarn } = useGlobalLogin();
 
@@ -26,13 +26,23 @@ export default function ProductCard(props) {
     const changeCartItems = () => {
         if (!addedToCart) {
             if (loginToken) {
-                setIsCart([
-                    {
-                        id: props.id,
-                        qnt: 1
-                    },
-                    ...isCart
-                ])
+                let itemFlag = 0;
+                isCart.map((curObj) => {
+                    if (curObj.id === props.id) {
+                        itemFlag = 1;
+                        IncrementQnt(props.id)
+                    }
+                })
+                if (itemFlag === 0) {
+                    setIsCart([
+                        {
+                            id: props.id,
+                            qnt: 1
+                        },
+                        ...isCart
+                    ])
+                }
+
 
                 notifySuccess('Item Added to Cart')
                 setAddedToCart(true)

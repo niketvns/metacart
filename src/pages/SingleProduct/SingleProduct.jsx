@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import './SingleProduct.css';
 import spinner from '../../images/Spinner.svg';
 import Rating from '@mui/material/Rating';
@@ -16,6 +16,8 @@ import Slider from '../../components/main/Slider';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/effect-cards";
+import { useGlobalCart } from '../../context/cart-context';
+import { useGlobalLogin } from '../../context/login-context';
 
 const API_URL = `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_PRODUCTS}`;
 
@@ -25,6 +27,13 @@ const SingleProduct = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
     const [stockClass, setStockClass] = useState('green');
+    const [addedToCart, setAddedToCart] = useState(false);
+
+    const { isCart, setIsCart } = useGlobalCart();
+    const { loginToken, notifySuccess, notifyWarn } = useGlobalLogin();
+
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -53,6 +62,28 @@ const SingleProduct = () => {
             setStockClass('green');
         }
     }, [productDetails.stock, id])
+
+    const changeCartItems = () => {
+        if (!addedToCart) {
+            if (loginToken) {
+                setIsCart([
+                    {
+                        id: id,
+                        qnt: 1
+                    },
+                    ...isCart
+                ])
+
+                notifySuccess('Item Added to Cart')
+                setAddedToCart(true)
+            } else {
+                navigate('/login')
+                notifyWarn('Login to Add Item')
+            }
+        } else {
+            navigate('/cart')
+        }
+    }
 
 
     return (
@@ -90,7 +121,7 @@ const SingleProduct = () => {
                                 <p className={stockClass}>Item Left: {productDetails.stock}</p>
                             </div>
                             <div className="btn">
-                                <Button variant="contained">
+                                <Button variant="contained" onClick={changeCartItems}>
                                     Add to Cart
                                 </Button>
                                 <Button variant="contained">

@@ -42,18 +42,18 @@ export default function Signup() {
                             <input type="password" name="password" id="" placeholder='Password' required />
                         </div>
                         <button type="submit">
-                            <Button variant="contained" style={{ backgroundColor: '#232f3e' }}>Register</Button>
+                            <Button variant="contained">Register</Button>
                         </button>
                     </form>
                     <p>Already Registered ? <NavLink to="/login">Login</NavLink></p>
                     <div className="other-accounts">
                         <div className="google">
-                            <Button variant="contained" style={{ backgroundColor: '#232f3e' }}>
+                            <Button variant="contained">
                                 <GoogleIcon /> Login With Google
                             </Button>
                         </div>
                         <div className="facebook">
-                            <Button variant="contained" style={{ backgroundColor: '#232f3e' }}>
+                            <Button variant="contained">
                                 <FacebookIcon /> Login With Facebook
                             </Button>
                         </div>

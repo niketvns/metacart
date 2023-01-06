@@ -116,7 +116,7 @@
 .menu-items .order-details ul li:hover,
 .menu-items .payments ul li:hover,
 .menu-items .my-account ul li:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 

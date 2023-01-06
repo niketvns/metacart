@@ -11,7 +11,7 @@ import Wishlist from './components/wishlist/Wishlist';
 import Women from './components/collection/women/Women';
 import Kid from './components/collection/kid/Kid';
 import Men from './components/collection/men/Men';
-import Winter from './components/collection/winter/Winter';
+import Technology from './components/collection/technology/Technology'
 import Beauty from './components/collection/beautyandHealth/Beauty';
 import ForgetPassword from './components/authentication/forgetPassword/ForgetPassword';
 import Error from './components/error/Error';
@@ -37,7 +37,7 @@ function App() {
         <Route path='/kid' element={<Kid />} />
         <Route path='/men' element={<Men />} />
         <Route path='/women' element={<Women />} />
-        <Route path='/winter' element={<Winter />} />
+        <Route path='/tech' element={<Technology />} />
         <Route path='/beauty' element={<Beauty />} />
         <Route path='/product/:id' element={<SingleProduct />} />
         <Route path='/search/:id' element={<Search />} />

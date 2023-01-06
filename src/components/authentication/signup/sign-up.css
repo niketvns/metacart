@@ -79,11 +79,8 @@
 }
 
 .signup-card form button {
-    border-radius: 10px;
     font-size: 0.8rem;
     border: none;
-    background-color: var(--secondary-color);
-    color: white;
     cursor: pointer;
 }
 

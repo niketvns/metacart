@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
 :root {
     --primary-color: #0F1111;
     --secondary-color: #232f3e;
@@ -8,6 +11,8 @@
 body {
     width: 100vw;
     background-color: var(--background-color);
+    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
 }
 
 body::-webkit-scrollbar {
@@ -102,7 +107,7 @@ header .best-deal .title-deal a:hover {
 .deal-item {
     width: 200px;
     text-align: center;
-    line-height: 20px;
+    line-height: 25px;
     cursor: pointer;
     box-shadow: 2px 2px 20px -10px black;
     border-radius: 20px;
@@ -230,6 +235,7 @@ header .best-deal .title-deal a:hover {
 .category-offer span {
     position: absolute;
     bottom: 20px;
+    left: 10px;
     background-color: var(--tag-color);
     color: white;
     padding: 5px;

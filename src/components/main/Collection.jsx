@@ -1,8 +1,8 @@
 import React from 'react';
 import Mens from '../../images/mens-formal.png';
 import Womens from '../../images/women-collection.png';
-import Winter from '../../images/winter-collection.png';
 import Formal from '../../images/formal-collection.png';
+import Tech from '../../images/tech-collection.png'
 import { NavLink } from 'react-router-dom';
 
 const Collection = () => {
@@ -11,13 +11,15 @@ const Collection = () => {
             <div className="collections">
                 <h2>Top Categories</h2>
                 <div className="all-collections">
-                    <div className="category-offer Winter">
-                        <span>Winter Collections</span>
-                        <div className="img">
-                            <img src={Winter} alt="" />
+                    <NavLink to='/tech'>
+                        <div className="category-offer Tech">
+                            <span>Tech Collections</span>
+                            <div className="img">
+                                <img src={Tech} alt="" />
+                            </div>
                         </div>
-                    </div>
-                    <NavLink to='women'>
+                    </NavLink>
+                    <NavLink to='/women'>
                         <div className="category-offer Women">
                             <span>Women's Collections</span>
                             <div className="img">
@@ -25,7 +27,7 @@ const Collection = () => {
                             </div>
                         </div>
                     </NavLink>
-                    <NavLink to='men'>
+                    <NavLink to='/men'>
                         <div className="category-offer Men">
                             <span>Men's Collections</span>
                             <div className="img">

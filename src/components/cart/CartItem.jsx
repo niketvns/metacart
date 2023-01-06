@@ -11,7 +11,7 @@ const CartItem = (props) => {
 
     const [cartItemDetail, setCartItemDetail] = useState();
 
-    const { deleteItem } = useGlobalCart()
+    const { deleteItem, IncrementQnt, DecrementQnt } = useGlobalCart()
 
     let API_URL = `https://dummyjson.com/products/${props.id}`
 
@@ -37,16 +37,16 @@ const CartItem = (props) => {
                 <div className="in-stock">In Stock</div>
             </div>
             <div className="qnt-btn">
-                <IconButton aria-label="delete" size="large">
+                <IconButton aria-label="delete" size="large" onClick={() => DecrementQnt(props.item.id)}>
                     <RemoveIcon />
                 </IconButton>
                 <input type="text" value={props.item.qnt} disabled />
-                <IconButton aria-label="delete" size="large">
+                <IconButton aria-label="delete" size="large" onClick={() => IncrementQnt(props.item.id)}>
                     <AddIcon />
                 </IconButton>
             </div>
             <div className="price">
-                Rs. {(cartItemDetail.price * 40).toFixed(0)}/-
+                Rs. {(cartItemDetail.price * 40 * props.item.qnt).toFixed(0)}/-
             </div>
             <div className="delete" onClick={() => deleteItem(cartItemDetail.id)}>
                 <IconButton aria-label="delete" size="large">

@@ -28,7 +28,7 @@ export default function AccountMenu() {
     return (
         <React.Fragment>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Tooltip title="Account settings">
+                <Tooltip title="User Account">
                     <IconButton
                         onClick={handleClick}
                         size="small"
@@ -37,9 +37,7 @@ export default function AccountMenu() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32 }}>
-                            {userDetail.firstName ? (userDetail.firstName).slice(0, 1) : ""}
-                        </Avatar>
+                        <Avatar alt={userDetail.firstName ? (userDetail.firstName).slice(0, 1) : ""} src={userDetail.image ? (userDetail.image) : ""} />
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -79,7 +77,7 @@ export default function AccountMenu() {
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
                 <MenuItem onClick={() => navigate('/my-account')}>
-                    <Avatar /> My account
+                    <Avatar src={userDetail.image ? (userDetail.image) : ""} /> My account
                 </MenuItem>
                 <MenuItem onClick={() => logoutAction()}>
                     <ListItemIcon>
