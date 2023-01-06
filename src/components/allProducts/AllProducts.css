@@ -1,0 +1,117 @@
+.all-products {
+    width: 100vw;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.all-products a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
+.ind-product {
+    width: 18rem;
+    min-height: 350px;
+    padding: 10px;
+    box-shadow: 5px 5px 25px -16px black;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    border-radius: 20px;
+}
+
+.ind-product:hover {
+    box-shadow: 1px 1px 6px -4px black;
+}
+
+.ind-product .img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.ind-product img {
+    width: 80%;
+    height: 150px;
+    object-fit: contain;
+}
+
+.ind-product h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.ind-product p.price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.ind-product p.desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+}
+
+.ind-product .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.css-1to51ap-MuiBadge-root .MuiBadge-badge {
+    background-color: var(--tag-color);
+}
+
+.google button,
+.facebook button {
+    display: flex;
+    gap: 5px;
+}
+
+.apiLoading {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.apiLoading p {
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width:700px) {
+    .ind-product {
+        width: 200px;
+        min-height: 300px;
+    }
+
+    .ind-product img {
+        height: 10rem;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .ind-product {
+        width: 170px;
+        min-height: 300px;
+    }
+}

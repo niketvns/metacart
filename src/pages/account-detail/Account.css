@@ -1,0 +1,41 @@
+.my-account-detail {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    min-height: 60vh;
+    margin-top: 5rem;
+    font-size: 1.5rem;
+    gap: 20px;
+}
+
+.my-account-detail .img {
+    height: 100px;
+    width: 100px;
+    object-fit: contain;
+}
+
+.my-account-detail .img img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin: 40px 0px;
+}
+
+.my-account-detail .details {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-account-detail a {
+    text-decoration: none;
+}
+
+.my-account-detail a button {
+    background-color: var(--secondary-color);
+}
+
+.my-account-detail a button:hover {
+    background-color: var(--secondary-color);
+}

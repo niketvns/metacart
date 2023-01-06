@@ -1,0 +1,30 @@
+.error {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.error img {
+    width: 200px;
+}
+
+.error p {
+    font-size: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error a {
+    text-decoration: none;
+}
+
+.error a button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+    cursor: pointer;
+}

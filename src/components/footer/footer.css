@@ -1,0 +1,89 @@
+:root {
+    --primary-color: #0F1111;
+    --secondary-color: #232f3e;
+}
+
+footer {
+    width: 100%;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.details {
+    padding: 20px 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.details h3 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 0px;
+    border-bottom: 2px solid white;
+
+}
+
+.details p {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+
+.get-app {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.icon-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.5px solid white;
+    padding: 0.7rem;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.icon-text img {
+    width: 30px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin: 0px 2rem;
+    border: 0.5px solid white;
+    padding: 0.7rem;
+    border-radius: 20px;
+}
+
+.social-media * {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.social-media *:hover {
+    transform: scale(1.06);
+    transition: 0.3s;
+}
+
+.copyright {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 10px;
+    }
+}

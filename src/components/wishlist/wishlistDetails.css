@@ -1,0 +1,63 @@
+.cart-items-main {
+    width: 100vw;
+    min-height: 80vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.cart-items-main .heading {
+    align-self: flex-start;
+    margin: 20px;
+}
+
+.cart-items-main .items {
+    width: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.cart-items-main .items .item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    box-shadow: 2px 2px 20px -15px black;
+}
+
+.cart-items-main .items .item .qnt-btn input {
+    width: 30px;
+    text-align: center;
+}
+
+.cart-items-main .items .item .in-stock {
+    color: green;
+}
+
+.cart-items-main .items .item img {
+    width: 100px;
+}
+
+.cart-items-main .items .item .qnt-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.cart-items-main .items .item .price {
+    font-size: 1.5rem;
+}
+
+.cart-items-main .items .item .delete *:hover {
+    color: red;
+    transition: 0.2s;
+}

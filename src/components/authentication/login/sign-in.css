@@ -1,0 +1,156 @@
+:root {
+    --primary-color: #0F1111;
+    --secondary-color: #232f3e;
+    --background-color: #EAEDED;
+}
+
+.sign-in {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../images/login-security.jpg);
+    background-size: 100% 100%;
+}
+
+.signin-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px;
+    min-width: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.signin-card h2 {
+    margin-top: 20px;
+}
+
+.signin-card form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.username,
+.password {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-icon,
+.lock-icon {
+    position: absolute;
+    left: 5px;
+    height: 100%;
+    z-index: 1;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    width: auto !important;
+}
+
+.signin-card .form input {
+    width: 250px !important;
+    height: 20px !important;
+}
+
+.signin-card .form button {
+    width: 250px !important;
+    height: 40px !important;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.signin-card p {
+    font-size: 1.4rem;
+}
+
+.signin-card p a {
+    text-transform: capitalize;
+    color: blue;
+}
+
+.signin-card p a:hover {
+    text-decoration: underline;
+}
+
+.other-accounts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.other-accounts .google,
+.other-accounts .facebook {
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    color: white;
+}
+
+.loggedin-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px 40px;
+    min-width: 250px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.loggedin-card button {
+    width: 250px !important;
+    height: 40px !important;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+@media screen and (max-width: 400px) {
+    .signin-card {
+        width: 250px;
+    }
+
+    .signin-card form input {
+        width: 210px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .signin-card {
+        width: 100vw;
+    }
+
+    .signin-card form input {
+        width: 180px;
+    }
+
+    .signin-card .close-icon {
+        right: 10px;
+        top: 10px;
+        color: black;
+    }
+
+    .signin-card .close-icon * {
+        font-size: 2rem;
+    }
+}

@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
+import Main from './components/main/Main';
+import Footer from './components/footer/Footer';
+import Signin from './components/authentication/login/Singin';
+import Signup from './components/authentication/signup/Signup';
+import AllProducts from './components/allProducts/AllProducts';
+import Cart from './components/cart/Cart';
+import Wishlist from './components/wishlist/Wishlist';
+import Women from './components/collection/women/Women';
+import Kid from './components/collection/kid/Kid';
+import Men from './components/collection/men/Men';
+import Winter from './components/collection/winter/Winter';
+import Beauty from './components/collection/beautyandHealth/Beauty';
+import ForgetPassword from './components/authentication/forgetPassword/ForgetPassword';
+import Error from './components/error/Error';
+import SingleProduct from './pages/SingleProduct/SingleProduct';
+import Search from './pages/search/Search';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Account from './pages/account-detail/Account';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Main />} />
+        <Route path='/login' element={<Signin />} />
+        <Route path='/Signup' element={<Signup />} />
+        <Route path='/recover-password' element={<ForgetPassword />} />
+        <Route path='/all-products' element={<AllProducts />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='/wishlist' element={<Wishlist />} />
+        <Route path='/kid' element={<Kid />} />
+        <Route path='/men' element={<Men />} />
+        <Route path='/women' element={<Women />} />
+        <Route path='/winter' element={<Winter />} />
+        <Route path='/beauty' element={<Beauty />} />
+        <Route path='/product/:id' element={<SingleProduct />} />
+        <Route path='/search/:id' element={<Search />} />
+        <Route path='/my-account' element={<Account />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
+      <Footer />
+      <ToastContainer />
+    </>
   );
 }
 
