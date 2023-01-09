@@ -7,6 +7,7 @@ import { Pagination, Navigation } from "swiper";
 import loader from '../../images/Bars.svg';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import SliderCard from './SliderCard';
 
 const SliderData = (props) => {
 
@@ -63,18 +64,9 @@ const SliderData = (props) => {
                                         return (
                                             <>
                                                 <SwiperSlide key={val.id}>
-                                                    <NavLink to={`/product/${val.id}`}>
-                                                        <div className="deal-item">
-                                                            <div className="product-img">
-                                                                <img src={val.images[0]} alt="" />
-                                                            </div>
-                                                            <div className="product-details">
-                                                                <h3>{val.title}</h3>
-                                                                <p className='price'>{val.price * 50} Rs. /-</p>
-                                                                <p>{val.brand}</p>
-                                                            </div>
-                                                        </div>
-                                                    </NavLink>
+                                                    <SliderCard
+                                                        val={val}
+                                                    />
                                                 </SwiperSlide>
                                             </>
                                         )

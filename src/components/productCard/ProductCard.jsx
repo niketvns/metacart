@@ -91,10 +91,11 @@ export default function ProductCard(props) {
                         </IconButton>
                     </span>
                 </div>
-                <p className='desc'>{props.description}</p>
                 <div>
                     <Rating name="half-rating-read" defaultValue={props.rating} precision={0.5} readOnly />
                 </div>
+                <p className='desc'>{props.description}</p>
+
                 <div className='btn'>
                     <Button onClick={changeCartItems} variant="contained">
                         <ShoppingCartIcon />{addedToCart ? 'Go To Cart' : 'Add To Cart'}

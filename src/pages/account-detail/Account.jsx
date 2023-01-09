@@ -3,27 +3,19 @@ import { useGlobalLogin } from '../../context/login-context';
 import './Account.css';
 import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
+import AccountDetails from './AccountDetails';
 
 const Account = () => {
 
     const { userDetail, loginToken } = useGlobalLogin();
-    console.log(userDetail);
 
     return (
         <>
             {
                 loginToken ?
-                    <div className="my-account-detail">
-                        <div className="img">
-                            <img src={userDetail.image} alt="profile" />
-                        </div>
-                        <div className="details">
-                            <p>Name: <b>{userDetail.firstName} {userDetail.lastName}</b></p>
-                            <p>Username: <b>{userDetail.username}</b></p>
-                            <p>Gender: <b>{userDetail.gender}</b></p>
-                            <p>Email: <b>{userDetail.email}</b></p>
-                        </div>
-                    </div> :
+                    <AccountDetails
+                        userDetail={userDetail}
+                    /> :
                     <div className="my-account-login">
                         <NavLink to='/login'>
                             <Button type='submit' variant="contained">

@@ -15,6 +15,13 @@ const CartDetails = () => {
                 <p>You Have {isCart.length} Items in Shopping Cart</p>
             </div>
             <div className="items">
+                <div className="item">
+                    <div>Image</div>
+                    <div>Title</div>
+                    <div>Quantity</div>
+                    <div>Price</div>
+                    <div>Delete</div>
+                </div>
                 {
                     isCart.map((val) => {
                         return <CartItem
@@ -33,14 +40,3 @@ const CartDetails = () => {
 }
 
 export default CartDetails;
-
-// {
-//     isCart.map(({ id, qnt }) => {
-//         return (
-//             <>
-//                 <h1>{id}</h1>
-//                 <h1>{qnt}</h1>
-//             </>
-//         )
-//     })
-// }

@@ -6,12 +6,15 @@ import './cartDetails.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { useGlobalCart } from '../../context/cart-context';
+import { useNavigate } from 'react-router-dom';
 
 const CartItem = (props) => {
 
     const [cartItemDetail, setCartItemDetail] = useState();
 
     const { deleteItem, IncrementQnt, DecrementQnt } = useGlobalCart()
+
+    const navigate = useNavigate();
 
     let API_URL = `https://dummyjson.com/products/${props.id}`
 
@@ -29,12 +32,16 @@ const CartItem = (props) => {
         cartItemDetail
         &&
         <div className="item">
-            <div className="img">
+            <div className="img" onClick={() => navigate(`/product/${cartItemDetail.id}`)}>
                 <img src={cartItemDetail.thumbnail} alt="" />
             </div>
-            <div className="title">
-                <h3>{cartItemDetail.title.slice(0, 14)}...</h3>
-                <div className="in-stock">In Stock</div>
+            <div className="title" onClick={() => navigate(`/product/${cartItemDetail.id}`)}>
+                <h3>{cartItemDetail.title}</h3>
+                {
+                    cartItemDetail.stock >= 0 ?
+                        <div className="in-stock">In Stock</div> :
+                        <div className="out-stock">Out Of Stock</div>
+                }
             </div>
             <div className="qnt-btn">
                 <IconButton aria-label="delete" size="large" onClick={() => DecrementQnt(props.item.id)}>
@@ -46,7 +53,7 @@ const CartItem = (props) => {
                 </IconButton>
             </div>
             <div className="price">
-                Rs. {(cartItemDetail.price * 40 * props.item.qnt).toFixed(0)}/-
+                &#8377;{(cartItemDetail.price * 40 * props.item.qnt).toFixed(0)}/-
             </div>
             <div className="delete" onClick={() => deleteItem(cartItemDetail.id)}>
                 <IconButton aria-label="delete" size="large">

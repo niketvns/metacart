@@ -16,8 +16,8 @@
 }
 
 .ind-product {
-    width: 18rem;
-    min-height: 350px;
+    width: 16rem;
+    min-height: 200px;
     padding: 10px;
     box-shadow: 5px 5px 30px -25px black;
     background-color: white;
@@ -26,7 +26,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 .ind-product:hover {
@@ -66,7 +66,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    cursor: pointer;
 }
 
 .ind-product .btn {
@@ -110,6 +109,20 @@
 
     .all-products {
         gap: 10px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .all-products {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 5px;
+    }
+
+    .ind-product {
+        width: 45vw;
     }
 }
 

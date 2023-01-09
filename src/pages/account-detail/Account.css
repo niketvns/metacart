@@ -1,4 +1,3 @@
-.my-account-detail,
 .my-account-login {
     display: flex;
     justify-content: center;
@@ -7,14 +6,35 @@
     min-height: 60vh;
     margin-top: 5rem;
     font-size: 1.5rem;
-    gap: 20px;
-}
-
-.my-account-login {
     align-items: center;
     background-image: url('../../images/my-account-bg.svg');
     background-size: 80% 80%;
     background-repeat: no-repeat;
+}
+
+.my-account-login a {
+    text-decoration: none;
+}
+
+.account {
+    min-height: 60vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.my-account-detail {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    margin-top: 50px;
+    font-size: 1.2rem;
+    gap: 30px;
 }
 
 .my-account-detail .img {
@@ -34,16 +54,9 @@
 .my-account-detail .details {
     display: flex;
     flex-direction: column;
+    text-transform: capitalize;
 }
 
-.my-account-login a {
-    text-decoration: none;
+.my-account-detail .details b {
+    margin-left: 10px;
 }
-
-/* .my-account-login a button {
-    background-color: var(--secondary-color);
-}
-
-.my-account-login a button:hover {
-    background-color: var(--secondary-color);
-} */
