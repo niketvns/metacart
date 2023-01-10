@@ -7,8 +7,6 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useGlobalCart } from '../../context/cart-context';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { useGlobalLogin } from '../../context/login-context';
 import { useGlobalWishlist } from '../../context/wishlist-context';
 
@@ -102,7 +100,6 @@ export default function ProductCard(props) {
                     </Button>
                 </div>
             </div>
-            <ToastContainer />
         </>
     )
 }

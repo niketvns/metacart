@@ -8,7 +8,7 @@ const API_URL = `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_PRODUC
 const ProductProvider = ({ children }) => {
 
     const [products, setProducts] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
 
     const getProduct = async () => {
@@ -18,7 +18,7 @@ const ProductProvider = ({ children }) => {
             setIsLoading(false)
             setProducts(response.data.products);
         } catch (err) {
-            setError(err.message)
+            setError(err.message);
             console.log(error);
         }
     }

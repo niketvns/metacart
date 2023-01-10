@@ -15,8 +15,6 @@ import AssignmentReturnIcon from '@mui/icons-material/AssignmentReturn';
 import ViewModuleIcon from '@mui/icons-material/ViewModule';
 import { NavLink } from 'react-router-dom';
 import { useGlobalLogin } from '../../context/login-context';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Menu({ menuFunction }) {
@@ -98,7 +96,6 @@ export default function Menu({ menuFunction }) {
                 <div className="right-menu" onClick={menuFunction}>
                 </div>
             </div>
-            <ToastContainer />
         </>
     )
 }

@@ -79,13 +79,14 @@ header .best-deal .title-deal a:hover {
 
 /* Loader  */
 
-.best-deal-loader {
+/* .best-deal-loader {
     height: 150px;
-}
+} */
 
-.best-deal-loader img {
+.best-deal-loader {
     width: 100vw;
     height: 100%;
+    font-size: 20px;
 }
 
 /* Deal Items  */
@@ -327,6 +328,10 @@ header .best-deal .title-deal a:hover {
 @media screen and (max-width: 1050px) {
 
     .deal-item {
+        width: 170px;
+    }
+
+    .deal-items .deal-item-container {
         width: 170px;
     }
 }

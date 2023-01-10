@@ -8,6 +8,8 @@ import loader from '../../images/Bars.svg';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
 import SliderCard from './SliderCard';
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 const SliderData = (props) => {
 
@@ -75,7 +77,12 @@ const SliderData = (props) => {
                             </Swiper>
                         </div> :
                         <div className="best-deal-loader">
-                            <img src={loader} alt="img" />
+                            {/* <img src={loader} alt="img" /> */}
+                            <Box>
+                                <Skeleton />
+                                <Skeleton animation="wave" />
+                                <Skeleton animation={false} />
+                            </Box>
                         </div>
                 }
             </div>

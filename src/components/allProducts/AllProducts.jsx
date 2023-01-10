@@ -16,7 +16,7 @@ export default function AllProducts() {
     }, [])
 
     return (
-        products ?
+        !isLoading ?
             <div className='all-products'>
                 {
                     products.map((val) => {
