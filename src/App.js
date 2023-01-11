@@ -15,7 +15,7 @@ import Technology from './components/collection/technology/Technology'
 import Beauty from './components/collection/beautyandHealth/Beauty';
 import ForgetPassword from './components/authentication/forgetPassword/ForgetPassword';
 import Error from './components/error/Error';
-import SingleProduct from './pages/SingleProduct/SingleProduct';
+import SingleProduct from './pages/SingleProduct/SingleProduct1';
 import Search from './pages/search/Search';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -31,7 +31,7 @@ function App() {
         <Route path='/login' element={<Signin />} />
         <Route path='/Signup' element={<Signup />} />
         <Route path='/recover-password' element={<ForgetPassword />} />
-        <Route path='/all-products' element={<AllProducts />} />
+        <Route path='/shop' element={<AllProducts />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/wishlist' element={<Wishlist />} />
         <Route path='/kid' element={<Kid />} />

@@ -17,7 +17,7 @@ export default function Signin() {
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
         if (loginToken) {
-            navigate('/')
+            navigate(-1)
         }
     }, [loginToken]);
 

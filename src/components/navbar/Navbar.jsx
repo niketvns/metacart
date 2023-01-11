@@ -143,8 +143,8 @@ export default function Navbar() {
                     <NavLink to='/'>
                         <li><HomeIcon /></li>
                     </NavLink>
-                    <NavLink to='all-products'>
-                        <li>All Products</li>
+                    <NavLink to='shop'>
+                        <li>Shop</li>
                     </NavLink>
                     <NavLink to='women'>
                         <li>Women</li>

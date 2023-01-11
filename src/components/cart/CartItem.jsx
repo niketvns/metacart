@@ -20,8 +20,7 @@ const CartItem = (props) => {
 
     const getCartItem = async () => {
         let res = await axios.get(API_URL)
-        setCartItemDetail(res.data)
-        // console.log(res.data);
+        setCartItemDetail(res.data);
     }
 
     useEffect(() => {
