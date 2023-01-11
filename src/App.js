@@ -15,7 +15,7 @@ import Technology from './components/collection/technology/Technology'
 import Beauty from './components/collection/beautyandHealth/Beauty';
 import ForgetPassword from './components/authentication/forgetPassword/ForgetPassword';
 import Error from './components/error/Error';
-import SingleProduct from './pages/SingleProduct/SingleProduct1';
+import SingleProduct from './pages/SingleProduct/SingleProduct';
 import Search from './pages/search/Search';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
