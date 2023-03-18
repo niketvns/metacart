@@ -13,12 +13,15 @@ const WishlistItem = (props) => {
 
     const { deleteItem } = useGlobalWishlist();
 
-    let API_URL = `https://dummyjson.com/products/${props.id}`;
+    let API_URL = `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_PRODUCTS}/${props.id}`;
 
     const getWishlistItem = async () => {
-        let res = await axios.get(API_URL)
-        setWishlistItemDetail(res.data)
-        console.log(res.data);
+        try {
+            let res = await axios.get(API_URL)
+            setWishlistItemDetail(res.data);
+        } catch (err) {
+            console.log(err.message);
+        }
     }
 
     useEffect(() => {

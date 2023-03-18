@@ -1,26 +1,38 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGlobalLogin } from './login-context';
 
 const cartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
     const [isCart, setIsCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
-    const tostifyObj = {
-        position: "top-right",
-        autoClose: 1500,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        pauseOnFocusLoss: false,
-        theme: "light",
+    const navigate = useNavigate();
+
+    const { notifyWarn, notifySuccess, loginToken } = useGlobalLogin();
+
+    const setCartLocalStorage = () => {
+        localStorage.setItem('userCartData', JSON.stringify(isCart));
     }
 
-    const notifySuccess = (content) => toast.success(content, tostifyObj);
+    const calculateTotalPrice = (price) => {
+        setTotalPrice(totalPrice + price);
+    }
+
+
+    const checkObjInArray = (arr, id) => {
+        let flag = false;
+        arr.map((val) => {
+            if (val.id === id) {
+                flag = true;
+            }
+        })
+        return flag;
+    }
 
 
     const deleteItem = (id) => {
@@ -29,7 +41,8 @@ const CartProvider = ({ children }) => {
                 return curItem.id != id;
             })
         })
-        notifySuccess('Removed From Cart')
+        notifySuccess('Removed From Cart');
+        setCartLocalStorage();
     }
 
     const IncrementQnt = (itemId) => {
@@ -44,6 +57,7 @@ const CartProvider = ({ children }) => {
                 return curItem;
             })
         })
+        setCartLocalStorage();
     }
 
     const DecrementQnt = (itemId) => {
@@ -62,11 +76,37 @@ const CartProvider = ({ children }) => {
                 return curItem;
             })
         })
+        setCartLocalStorage();
     }
 
+    const addToCart = (id) => {
+        if (loginToken) {
+            let itemFlag = 0;
+            isCart.map((curObj) => {
+                if (curObj.id === id) {
+                    itemFlag = 1;
+                    IncrementQnt(id)
+                }
+            })
+            if (itemFlag === 0) {
+                setIsCart([
+                    {
+                        id: id,
+                        qnt: 1
+                    },
+                    ...isCart
+                ])
+            }
+            notifySuccess('Item Added to Cart');
+            setCartLocalStorage();
+        } else {
+            navigate('/login')
+            notifyWarn('Login to Add Item')
+        }
+    }
 
     return (
-        <cartContext.Provider value={{ isCart, setIsCart, deleteItem, IncrementQnt, DecrementQnt }}>
+        <cartContext.Provider value={{ isCart, setIsCart, deleteItem, IncrementQnt, DecrementQnt, setCartLocalStorage, checkObjInArray, addToCart, totalPrice, calculateTotalPrice }}>
             {children}
         </cartContext.Provider>
     )

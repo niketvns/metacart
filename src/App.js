@@ -20,6 +20,8 @@ import Search from './pages/search/Search';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Account from './pages/account-detail/Account';
+import Success from './pages/success/Success';
+import CustomerSupport from './pages/customer-support/CustomerSupport';
 
 function App() {
 
@@ -42,6 +44,8 @@ function App() {
         <Route path='/product/:id' element={<SingleProduct />} />
         <Route path='/search/:id' element={<Search />} />
         <Route path='/my-account' element={<Account />} />
+        <Route path='/success' element={<Success />} />
+        <Route path='/customer-support' element={<CustomerSupport />} />
         <Route path='*' element={<Error />} />
       </Routes>
       <Footer />

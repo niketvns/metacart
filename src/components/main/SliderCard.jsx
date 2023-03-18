@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { NavLink } from 'react-router-dom';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useGlobalLogin } from '../../context/login-context';
+import { useGlobalWishlist } from '../../context/wishlist-context';
 
 const SliderCard = ({ val }) => {
 
 
-    const [showDealBtn, setShowDealBtn] = useState(false);
+    const [heartColor, setHeartColor] = useState('#b6bfb8');
+
+    const { isWishlist, addToWishlist } = useGlobalWishlist();
 
     return (
         <>
             <div
                 className="deal-item-container"
-                onMouseOver={() => setShowDealBtn(true)}
-                onMouseLeave={() => setShowDealBtn(false)}
             >
                 <NavLink to={`/product/${val.id}`}>
                     <div className="deal-item">
@@ -29,14 +31,15 @@ const SliderCard = ({ val }) => {
                     </div>
                 </NavLink>
                 {
-                    showDealBtn
-                    &&
-                    <div className="add-to-cart">
-                        {/* <IconButton color="primary" aria-label="add to shopping cart">
-                                <AddShoppingCartIcon />
-                            </IconButton> */}
-                        <IconButton color="primary" aria-label="add to shopping cart">
-                            <FavoriteBorderIcon />
+                    <div className="add-to-cart" onClick={() => addToWishlist(val.id)}>
+                        <IconButton
+                            color="primary"
+                            aria-label="add to shopping cart"
+                            onClick={() => setHeartColor("red")}
+                        >
+                            <FavoriteIcon
+                                style={{ color: isWishlist.includes(val.id) ? "red" : heartColor }}
+                            />
                         </IconButton>
                     </div>
                 }

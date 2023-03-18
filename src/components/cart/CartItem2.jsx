@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import './cartDetails.css';
+import './CartItem2.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
 import { useGlobalCart } from '../../context/cart-context';
@@ -21,7 +21,6 @@ const CartItem = (props) => {
     const getCartItem = async () => {
         let res = await axios.get(API_URL)
         setCartItemDetail(res.data);
-        calculateTotalPrice(res.data.price);
     }
 
     useEffect(() => {
@@ -31,8 +30,54 @@ const CartItem = (props) => {
     return (
         cartItemDetail
         &&
-        <div className="item">
-            <div className="img" onClick={() => navigate(`/product/${cartItemDetail.id}`)}>
+
+
+        <tbody>
+            <tr>
+                <td>
+                    <img src={cartItemDetail.thumbnail} alt="" />
+                </td>
+                <td>
+                    <h3>{cartItemDetail.title}</h3>
+                    {
+                        cartItemDetail.stock >= 0 ?
+                            <div className="in-stock">In Stock</div> :
+                            <div className="out-stock">Out Of Stock</div>
+                    }
+                </td>
+                <td>
+                    <div className="qnt-btn">
+                        <IconButton aria-label="delete" size="large" onClick={() => DecrementQnt(props.item.id)}>
+                            <RemoveIcon />
+                        </IconButton>
+                        <input type="text" value={props.item.qnt} disabled />
+                        <IconButton aria-label="delete" size="large" onClick={() => IncrementQnt(props.item.id)}>
+                            <AddIcon />
+                        </IconButton>
+                    </div>
+                </td>
+                <td className='table-data__price'>
+                    &#8377;{(cartItemDetail.price * 40 * props.item.qnt).toFixed(0)}/-
+                </td>
+                <td>
+                    <IconButton aria-label="delete" size="large" onClick={() => deleteItem(cartItemDetail.id)}>
+                        <DeleteIcon fontSize="inherit" />
+                    </IconButton>
+                </td>
+            </tr>
+        </tbody>
+
+    )
+}
+
+export default CartItem;
+
+
+
+
+
+
+{/* <div className="img" onClick={() => navigate(`/product/${cartItemDetail.id}`)}>
                 <img src={cartItemDetail.thumbnail} alt="" />
             </div>
             <div className="title" onClick={() => navigate(`/product/${cartItemDetail.id}`)}>
@@ -59,9 +104,4 @@ const CartItem = (props) => {
                 <IconButton aria-label="delete" size="large">
                     <DeleteIcon fontSize="inherit" />
                 </IconButton>
-            </div>
-        </div>
-    )
-}
-
-export default CartItem;
+            </div> */}

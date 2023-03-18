@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useGlobalLogin } from './login-context';
 
 const searchContext = createContext();
 
@@ -12,6 +13,8 @@ const SearchProvider = ({ children }) => {
     const [error, setError] = useState();
     const [query, setQuery] = useState('');
 
+    const { notifyError } = useGlobalLogin();
+
     const getSearch = async () => {
         try {
             let response = await axios.get(`${API_URL}+${query}`);
@@ -23,7 +26,8 @@ const SearchProvider = ({ children }) => {
             }
         } catch (err) {
             setError(err.message)
-            console.log(error);
+            notifyError("Not Found");
+            console.log(error.message);
         }
     }
 
@@ -32,7 +36,7 @@ const SearchProvider = ({ children }) => {
     }, [query])
 
     return (
-        <searchContext.Provider value={{ products, isLoading, error, setQuery }}>
+        <searchContext.Provider value={{ products, isLoading, error, query, setQuery }}>
             {children}
         </searchContext.Provider>
     )

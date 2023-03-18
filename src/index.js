@@ -14,18 +14,18 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <>
-    <LoginProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <ProductProvider>
-            <SearchProvider>
-              <Router>
+    <Router>
+      <LoginProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <ProductProvider>
+              <SearchProvider>
                 <App />
-              </Router>
-            </SearchProvider>
-          </ProductProvider>
-        </WishlistProvider>
-      </CartProvider>
-    </LoginProvider>
+              </SearchProvider>
+            </ProductProvider>
+          </WishlistProvider>
+        </CartProvider>
+      </LoginProvider>
+    </Router>
   </>
 );

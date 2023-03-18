@@ -15,58 +15,11 @@ export default function ProductCard(props) {
     const [addedToCart, setAddedToCart] = useState(false);
     const [addedWishlist, setAddedWishlist] = useState(false);
 
-    const { isCart, setIsCart, IncrementQnt } = useGlobalCart();
-    const { isWishlist, setIsWishlist } = useGlobalWishlist();
+    const { isCart, addToCart, checkObjInArray } = useGlobalCart();
+    const { isWishlist, setIsWishlist, addToWishlist } = useGlobalWishlist();
     const { loginToken, notifySuccess, notifyWarn } = useGlobalLogin();
 
     const navigate = useNavigate();
-
-    const changeCartItems = () => {
-        if (!addedToCart) {
-            if (loginToken) {
-                let itemFlag = 0;
-                isCart.map((curObj) => {
-                    if (curObj.id === props.id) {
-                        itemFlag = 1;
-                        IncrementQnt(props.id)
-                    }
-                })
-                if (itemFlag === 0) {
-                    setIsCart([
-                        {
-                            id: props.id,
-                            qnt: 1
-                        },
-                        ...isCart
-                    ])
-                }
-
-
-                notifySuccess('Item Added to Cart')
-                setAddedToCart(true)
-            } else {
-                navigate('/login')
-                notifyWarn('Login to Add Item')
-            }
-        } else {
-            navigate('/cart')
-        }
-    }
-
-    const changeWishlist = () => {
-        if (!addedWishlist) {
-            if (loginToken) {
-                setIsWishlist([props.id, ...isWishlist])
-                notifySuccess('Item Added to Wishlist')
-                setAddedWishlist(true)
-            } else {
-                navigate('/login')
-                notifyWarn('Login to Add Wishlist')
-            }
-        } else {
-            navigate('/wishlist')
-        }
-    }
 
     return (
         <>
@@ -79,12 +32,12 @@ export default function ProductCard(props) {
                 <h3>{props.title}</h3>
                 <div className="price-wishlist">
                     <p className='price'><sup>&#8377;</sup>{(props.price * 40).toFixed(0)}/-</p>
-                    <span onClick={changeWishlist}>
+                    <span onClick={() => addToWishlist(props.id)}>
                         <IconButton
                             aria-label="delete" id='wishlist-icon'
                         >
                             <FavoriteIcon
-                                style={{ color: '#1565c0' }}
+                                style={{ color: isWishlist.includes(props.id) ? "red" : "#b6bfb8" }}
                             />
                         </IconButton>
                     </span>
@@ -95,9 +48,16 @@ export default function ProductCard(props) {
                 <p className='desc'>{props.description}</p>
 
                 <div className='btn'>
-                    <Button onClick={changeCartItems} variant="contained">
-                        <ShoppingCartIcon />{addedToCart ? 'Go To Cart' : 'Add To Cart'}
-                    </Button>
+                    {
+                        checkObjInArray(isCart, props.id) ?
+                            <Button onClick={() => navigate('/cart')} variant="contained">
+                                <ShoppingCartIcon /> Go To Cart
+                            </Button> :
+                            <Button onClick={() => addToCart(props.id)} variant="contained">
+                                <ShoppingCartIcon /> Add To Cart
+                            </Button>
+
+                    }
                 </div>
             </div>
         </>

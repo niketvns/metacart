@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams, useLocation, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './SingleProduct.css';
 import spinner from '../../images/Spinner.svg';
 import Rating from '@mui/material/Rating';
@@ -15,6 +15,7 @@ import discountImg from '../../images/discount.png'
 import freeDelivery from '../../images/free-delivery-icon.png'
 import shield from '../../images/shield.png';
 import returnImg from '../../images/return.png';
+import PayPal from '../../components/payment/PayPal';
 
 const API_URL = `${process.env.REACT_APP_BASE_URL}${process.env.REACT_APP_PRODUCTS}`;
 
@@ -26,8 +27,9 @@ const SingleProduct1 = () => {
     const [stockClass, setStockClass] = useState('green');
     const [addedToCart, setAddedToCart] = useState(false);
     const [fullImg, setFullImg] = useState()
+    const [checkout, setCheckout] = useState(false)
 
-    const { isCart, setIsCart } = useGlobalCart();
+    const { isCart, setIsCart, addToCart, checkObjInArray } = useGlobalCart();
     const { loginToken, notifySuccess, notifyWarn } = useGlobalLogin();
 
     const navigate = useNavigate();
@@ -62,25 +64,12 @@ const SingleProduct1 = () => {
         }
     }, [productDetails.stock, id])
 
-    const changeCartItems = () => {
-        if (!addedToCart) {
-            if (loginToken) {
-                setIsCart([
-                    {
-                        id: id,
-                        qnt: 1
-                    },
-                    ...isCart
-                ])
-
-                notifySuccess('Item Added to Cart')
-                setAddedToCart(true)
-            } else {
-                navigate('/login')
-                notifyWarn('Login to Add Item')
-            }
+    const buyNow = () => {
+        if (loginToken) {
+            setCheckout(true);
         } else {
-            navigate('/cart')
+            notifyWarn('Login To Buy')
+            navigate('/login')
         }
     }
 
@@ -151,7 +140,7 @@ const SingleProduct1 = () => {
                                 <div className="check-location">
                                     <p>Delivery </p>
                                     <div className="input-btn">
-                                        <TextField id="standard-basic" label="Pin Code" type={"number"} maxlength={'6'} variant="standard" />
+                                        <TextField id="standard-basic" label="Pin Code" type={"number"} maxLength={'6'} variant="standard" />
                                         <Button variant="text">check</Button>
                                     </div>
                                 </div>
@@ -171,12 +160,25 @@ const SingleProduct1 = () => {
                                 </div>
                             </div>
                             <div className="btn">
-                                <Button variant="contained" onClick={changeCartItems}>
-                                    Add to Cart
-                                </Button>
-                                <Button variant="contained">
+                                {
+                                    checkObjInArray(isCart, productDetails.id) ?
+                                        <Button variant="contained" onClick={() => navigate('/cart')}>
+                                            Go to Cart
+                                        </Button> :
+                                        <Button variant="contained" onClick={() => addToCart(productDetails.id)}>
+                                            Add to Cart
+                                        </Button>
+                                }
+
+                                {
+                                    checkout ?
+                                        <PayPal payingAmount={productDetails.price} /> :
+                                        <Button variant="contained" onClick={buyNow}>Buy Now</Button>
+                                }
+
+                                {/* <Button variant="contained">
                                     Buy Now
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>

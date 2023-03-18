@@ -3,7 +3,7 @@ import './Wishlist.css';
 import wishlist from '../../images/wishlist.svg';
 import { useGlobalLogin } from '../../context/login-context';
 import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import WishlistDetails from './WishlistDetails';
 import { useGlobalWishlist } from '../../context/wishlist-context';
 
@@ -12,6 +12,8 @@ export default function Wishlist() {
     const { loginToken } = useGlobalLogin();
 
     const { isWishlist } = useGlobalWishlist();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -27,6 +29,9 @@ export default function Wishlist() {
                             <div className="empty-wishlist">
                                 <img src={wishlist} alt="empty-wishlist" />
                                 <p>Nothing in the Wishlist</p>
+                                <Button type='submit' variant="contained" onClick={() => navigate('/')}>
+                                    Continue
+                                </Button>
                             </div>
                         </div>
                 }

@@ -5,6 +5,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import facebook from '../../images/social/facebook.png'
+import instagram from '../../images/social/instagram.png'
+import twitter from '../../images/social/twitter.png'
+import linkedin from '../../images/social/linkedin.png'
+import github from '../../images/social/github.png'
+import developer from '../../images/social/developer-icon.png'
 
 export default function Footer() {
 
@@ -13,7 +19,23 @@ export default function Footer() {
     return (
         <>
             <div className="bg-img">
-                <a href='https://twitter.com/Niketmishravns'>Follow Us On Twitter</a>
+                <div className="social-links">
+                    <a href="https://www.facebook.com/niketmishra.niketmishra.3" target='_blank'>
+                        <img src={facebook} alt="facebook" />
+                    </a>
+                    <a href="https://www.instagram.com/mishrank_mkp25675/" target='_blank'>
+                        <img src={instagram} alt="insta" />
+                    </a>
+                    <a href="https://github.com/niketvns" target='_blank'>
+                        <img src={github} alt="github" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/niket-kumar-mishra-37ab5a215/" target='_blank'>
+                        <img src={linkedin} alt="linkedin" />
+                    </a>
+                    <a href="https://twitter.com/Niketmishravns" target='_blank'>
+                        <img src={twitter} alt="twitter" />
+                    </a>
+                </div>
             </div>
             <footer>
                 <div className="details">
@@ -52,12 +74,10 @@ export default function Footer() {
                         <img src={googlePlay} alt="" />
                         <p>Get the App</p>
                     </div>
-                    <div className="social-media">
-                        <a href=""><GitHubIcon /></a>
-                        <a href=""><LinkedInIcon /></a>
-                        <a href=""><TwitterIcon /></a>
-                        <a href=""><InstagramIcon /></a>
-                    </div>
+                    <a href='https://niket.netlify.app/' className="icon-text" target='_blank'>
+                        <img src={developer} alt="" />
+                        <p>Developer</p>
+                    </a>
                 </div>
                 <hr />
                 <div className="copyright">

@@ -3,7 +3,7 @@ import './Cart.css';
 import emptyCart from '../../images/empty_cart.svg';
 import { useGlobalLogin } from '../../context/login-context';
 import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useGlobalCart } from '../../context/cart-context';
 import CartDetails from './CartDetails';
 
@@ -12,6 +12,8 @@ export default function Cart() {
     const { loginToken } = useGlobalLogin();
 
     const { isCart } = useGlobalCart();
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
@@ -27,6 +29,9 @@ export default function Cart() {
                             <div className="empty-cart">
                                 <img src={emptyCart} alt="empty-cart" />
                                 <p>Cart is Empty</p>
+                                <Button type='submit' variant="contained" onClick={() => navigate('/')}>
+                                    Continue
+                                </Button>
                             </div>
                         </div>
                 }
