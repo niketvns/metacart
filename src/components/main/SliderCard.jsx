@@ -35,7 +35,7 @@ const SliderCard = ({ val }) => {
                         <IconButton
                             color="primary"
                             aria-label="add to shopping cart"
-                            onClick={() => setHeartColor("red")}
+                        // onClick={() => setHeartColor(heartColor)}
                         >
                             <FavoriteIcon
                                 style={{ color: isWishlist.includes(val.id) ? "red" : heartColor }}
