@@ -152,8 +152,13 @@ input::placeholder {
   background-color: var(--primary-color);
   color: white;
   right: 0px;
+  top: 0px;
   border-radius: 0px 20px 20px 0px;
   cursor: pointer;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .categories {

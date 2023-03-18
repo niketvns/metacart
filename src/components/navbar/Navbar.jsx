@@ -113,7 +113,6 @@ export default function Navbar() {
                     <div className="login">
                         {
                             loginToken ?
-                                // <Avatar alt={userDetail.firstName} src="/static/images/avatar/1.jpg" /> :
                                 <AccountMenu /> :
                                 <NavLink to='/login'>
                                     <Stack spacing={2} direction="row">
@@ -126,13 +125,10 @@ export default function Navbar() {
                 </div>
             </nav>
             <div className="search-2">
-                {/* <NavLink to={`/search/${input}`} onClick={setInputNull}>
-                    <SearchIcon className='search-icon' />
-                </NavLink> */}
-                <div onClick={setInputNull}>
-                    <SearchIcon className='search-icon' />
-                </div>
-                <input type="search" name="" id="" placeholder='Search Items' autoCorrect='off' autoSave='on' autoComplete='on' onChange={inputSearch} value={input} />
+                <form onSubmit={setInputNull}>
+                    <input type="search" name="" id="" placeholder='Search Items' autoCorrect='off' autoSave='on' autoComplete='on' onChange={inputSearch} value={input} />
+                    <button type='Submit' className='search-icon'><SearchIcon /></button>
+                </form>
             </div>
             <div className="categories">
                 <ul>
