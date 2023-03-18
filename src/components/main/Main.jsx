@@ -21,14 +21,14 @@ export default function Main() {
             <header>
                 <Slider
                     image={[header1, header2, header3, header4]} />
+                <Collection />
                 <SliderData
                     key={921}
                     title={'Home Decoration'}
                     category={'home-decoration'}
                     all={'view all'}
                 />
-                <Collection />
-                <BestOffers />
+                {/* <BestOffers /> */}
                 <SliderData
                     key={922}
                     title={'Sunglasses'}

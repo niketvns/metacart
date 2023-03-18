@@ -61,6 +61,11 @@ nav .left .search .search-icon {
   width: 30px;
   top: 0px;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 nav .right {
